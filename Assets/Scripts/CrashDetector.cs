@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // ReSharper disable CheckNamespace
 // ReSharper disable UnusedMember.Global
@@ -10,9 +11,12 @@ public class CrashDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == GroundTag)
+        if (collision.tag != GroundTag)
         {
-            Debug.Log("Hit head");
+            return;
         }
+
+        SceneManager.LoadScene(0);
+        Debug.Log("Hit head");
     }
 }
