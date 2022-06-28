@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
+    private const string PlayerTag = "Player";
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Finished");
+        if (collision.tag == PlayerTag)
+        {
+            Debug.Log($"Finished");
+        }
     }
 }
