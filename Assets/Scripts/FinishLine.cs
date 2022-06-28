@@ -17,6 +17,5 @@ public class FinishLine : MonoBehaviour
         }
 
         SceneManager.LoadScene(0);
-        Debug.Log($"Finished");
     }
 }

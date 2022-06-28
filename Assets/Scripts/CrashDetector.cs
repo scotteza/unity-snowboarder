@@ -17,6 +17,5 @@ public class CrashDetector : MonoBehaviour
         }
 
         SceneManager.LoadScene(0);
-        Debug.Log("Hit head");
     }
 }
