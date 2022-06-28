@@ -1,5 +1,9 @@
 using UnityEngine;
 
+// ReSharper disable CheckNamespace
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMember.Local
+
 public class FinishLine : MonoBehaviour
 {
     private const string PlayerTag = "Player";

@@ -2,6 +2,7 @@ using UnityEngine;
 
 // ReSharper disable CheckNamespace
 // ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMember.Local
 
 public class PlayerController : MonoBehaviour
 {
