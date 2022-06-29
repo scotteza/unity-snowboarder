@@ -24,6 +24,11 @@ public class CrashDetector : MonoBehaviour
         {
             return;
         }
+        
+        if (!_gameState.IsPlayerAlive())
+        {
+            return;
+        }
 
         crashParticleSystem.Play();
         _audioSource.PlayOneShot(crashSoundEffect);
