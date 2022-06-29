@@ -8,15 +8,22 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rigidBody;
     private SurfaceEffector2D _surfaceEffector2D;
+    private GameState _gameState;
 
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
+        _gameState = FindObjectOfType<GameState>();
     }
 
     private void Update()
     {
+        if (!_gameState.IsPlayerAlive())
+        {
+            return;
+        }
+        
         RotatePlayer();
         Boost();
     }
