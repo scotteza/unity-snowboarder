@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] private float _secondsToReloadSceneAfterFinish = 0.5f;
+    [SerializeField] private ParticleSystem _finishEffect;
 
     private const string PlayerTag = "Player";
 
@@ -21,6 +22,7 @@ public class FinishLine : MonoBehaviour
             return;
         }
 
+        _finishEffect.Play();
         Invoke(nameof(ReloadScene), _secondsToReloadSceneAfterFinish);
     }
 
