@@ -7,17 +7,24 @@ public class FinishLine : MonoBehaviour
     [SerializeField] private ParticleSystem finishLineParticleSystem;
 
     private AudioSource _audioSource;
+    private GameState _gameState;
 
     private const string PlayerTag = "Player";
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        _gameState = FindObjectOfType<GameState>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag(PlayerTag))
+        {
+            return;
+        }
+        
+        if (!_gameState.IsPlayerAlive())
         {
             return;
         }
