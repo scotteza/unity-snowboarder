@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfcc1dd31616114da5211db83d5c08d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _secondsToReloadSceneAfterCrash: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
