@@ -1,29 +1,40 @@
 using UnityEngine;
 
-// ReSharper disable CheckNamespace
-// ReSharper disable UnusedMember.Global
-// ReSharper disable UnusedMember.Local
-
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _torqueAmount = 3f;
+    [SerializeField] private float torqueAmount = 25;
+    [SerializeField] private float boostSpeed = 50;
+    [SerializeField] private float baseSpeed = 20;
 
     private Rigidbody2D _rigidBody;
+    private SurfaceEffector2D _surfaceEffector2D;
 
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+        _surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
     }
 
     private void Update()
     {
+        RotatePlayer();
+        Boost();
+    }
+
+    private void RotatePlayer()
+    {
         if (Input.GetKey(KeyCode.A))
         {
-            _rigidBody.AddTorque(_torqueAmount);
+            _rigidBody.AddTorque(torqueAmount);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            _rigidBody.AddTorque(-_torqueAmount);
+            _rigidBody.AddTorque(-torqueAmount);
         }
+    }
+
+    private void Boost()
+    {
+        _surfaceEffector2D.speed = Input.GetKey(KeyCode.Space) ? boostSpeed : baseSpeed;
     }
 }
