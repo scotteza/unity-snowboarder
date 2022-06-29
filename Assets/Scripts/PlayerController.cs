@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_gameState.IsPlayerAlive())
         {
+            _surfaceEffector2D.speed = 0;
             return;
         }
         
