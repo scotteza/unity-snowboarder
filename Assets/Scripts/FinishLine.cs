@@ -3,10 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
-    [SerializeField] private float secondsToReloadSceneAfterFinish = 0.5f;
-    [SerializeField] private ParticleSystem finishEffect;
+    [SerializeField] private float secondsToReloadSceneAfterFinish = 2;
+    [SerializeField] private ParticleSystem finishLineParticleSystem;
+
+    private AudioSource _audioSource;
 
     private const string PlayerTag = "Player";
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +22,8 @@ public class FinishLine : MonoBehaviour
             return;
         }
 
-        finishEffect.Play();
+        finishLineParticleSystem.Play();
+        _audioSource.Play();
         Invoke(nameof(ReloadScene), secondsToReloadSceneAfterFinish);
     }
 

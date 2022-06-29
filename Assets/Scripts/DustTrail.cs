@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DustTrail : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem snowEffect;
+    [SerializeField] private ParticleSystem dustTrailParticleSystem;
 
     private const string GroundTag = "Ground";
 
@@ -10,7 +10,7 @@ public class DustTrail : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GroundTag))
         {
-            snowEffect.Play();
+            dustTrailParticleSystem.Play();
         }
     }
 
@@ -18,7 +18,7 @@ public class DustTrail : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GroundTag))
         {
-            snowEffect.Stop();
+            dustTrailParticleSystem.Stop();
         }
     }
 }
