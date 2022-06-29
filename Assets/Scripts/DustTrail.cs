@@ -8,7 +8,7 @@ public class DustTrail : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == GroundTag)
+        if (collision.gameObject.CompareTag(GroundTag))
         {
             snowEffect.Play();
         }
@@ -16,7 +16,7 @@ public class DustTrail : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == GroundTag)
+        if (collision.gameObject.CompareTag(GroundTag))
         {
             snowEffect.Stop();
         }

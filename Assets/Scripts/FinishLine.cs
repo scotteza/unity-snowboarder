@@ -3,20 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
-    [SerializeField] private float _secondsToReloadSceneAfterFinish = 0.5f;
-    [SerializeField] private ParticleSystem _finishEffect;
+    [SerializeField] private float secondsToReloadSceneAfterFinish = 0.5f;
+    [SerializeField] private ParticleSystem finishEffect;
 
     private const string PlayerTag = "Player";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != PlayerTag)
+        if (!collision.CompareTag(PlayerTag))
         {
             return;
         }
 
-        _finishEffect.Play();
-        Invoke(nameof(ReloadScene), _secondsToReloadSceneAfterFinish);
+        finishEffect.Play();
+        Invoke(nameof(ReloadScene), secondsToReloadSceneAfterFinish);
     }
 
     private void ReloadScene()
